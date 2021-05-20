@@ -16,6 +16,47 @@ When you look into the ```01_add.c``` file using a text editor like Atom, VSCode
 
 So line numbers 3 and 5 print information, and line 4 is scanning information (our input). You also see on line 4 and 5 this ```%d``` used for the two numbers that are scanned and the sum that is printed, and this ```d``` is used for ```int``` integer values on line 2. There is also the ```\n``` on line 5 and this is just printing a newline character. Line 4 also has ```&a, &b``` and this is the most difficult! The ```scanf``` scan the input according to its format parameter. And stores the scanned values into the addresses of variables a and b. Remember that ```&a``` is the address of ```a```, or the pointer to ```a```.
 
+When looking on my file system I see that the ```a.out``` is about 8 Kb in size.
+It has all kind of binary code, but also the strings that you recognize from the source code.
+Use the ```strings``` command;
+```
+strings a.out
+Enter two numbers:
+%d%d
+Sum: %d
+```
+
+When looking at lines of the executable content, I use a hex-dump. This
+shows the address, the bytes in hexadecimal and its character (when printable).
+```
+xxd a.out | head
+00000000: cffa edfe 0700 0001 0300 0080 0200 0000  ................
+00000010: 0f00 0000 c004 0000 8500 2000 0000 0000  .......... .....
+00000020: 1900 0000 4800 0000 5f5f 5041 4745 5a45  ....H...__PAGEZE
+00000030: 524f 0000 0000 0000 0000 0000 0000 0000  RO..............
+00000040: 0000 0000 0100 0000 0000 0000 0000 0000  ................
+00000050: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000060: 0000 0000 0000 0000 1900 0000 d801 0000  ................
+00000070: 5f5f 5445 5854 0000 0000 0000 0000 0000  __TEXT..........
+00000080: 0000 0000 0100 0000 0010 0000 0000 0000  ................
+00000090: 0000 0000 0000 0000 0010 0000 0000 0000  ................
+
+xxd a.out | tail
+00002080: 0000 0000 0100 0000 1600 0000 0f01 0000  ................
+00002090: 000f 0000 0100 0000 1c00 0000 0100 0001  ................
+000020a0: 0000 0000 0000 0000 2400 0000 0100 0001  ........$.......
+000020b0: 0000 0000 0000 0000 2b00 0000 0100 0001  ........+.......
+000020c0: 0000 0000 0000 0000 0200 0000 0300 0000  ................
+000020d0: 0400 0000 0000 0040 0200 0000 0300 0000  .......@........
+000020e0: 2000 5f5f 6d68 5f65 7865 6375 7465 5f68   .__mh_execute_h
+000020f0: 6561 6465 7200 5f6d 6169 6e00 5f70 7269  eader._main._pri
+00002100: 6e74 6600 5f73 6361 6e66 0064 796c 645f  ntf._scanf.dyld_
+00002110: 7374 7562 5f62 696e 6465 7200 0000 0000  stub_binder.....
+```
+The output depends on the operating system and processor.
+You don't need to understand it right now!
+
+
 ### 02_add.c
 
 When compiling the previous example, you noticed warnings. The first one started with ```01_add.c:1:1``` and then you can read that something is missing, it is default ```int``` and it shows a ```^``` pointing to the ```m``` of ```main() {``` on the first line. So ```1:1``` indeed means the first line, first character. And we can add that to get a first line of ```int main(){```.
@@ -163,4 +204,119 @@ Single line comments are always at the end of a the line of code, it ends with t
 int a, b; // declare a and b
 ```
 
-### Expressions
+#### Expressions
+Some calculations;
+```
+y = x + 1;
+y = (x + 1) * 2;
+y = (x - 1) * x;
+y = a / b;
+y = 17 / 3;    // 17/3 = 5 if y is an int
+y = 17. / 3;   // 17./3 = 5.666666...
+y = 17 % 3;    // 17 modulo 3 = 2 (the remainder)
+```
+Declaring and assigning these;
+```
+int main() {
+  int a,b;
+  float miles;
+  char ch;
+  a = 1;
+  b = a * 2;
+  miles = 234.334;
+  ch = 'A';
+  miles = b;  // convert int to float
+  a = ch;     // a gets ASCII character value 65
+}
+```
+Relational and logical operators;
+```
+<     less than
+>     greater than
+<=    less or equal than
+>=    greater or equal than
+==    equals
+!=    not equals
+&&    logical and
+||    logical or
+!     not
+```
+
+In a logical expression in C, true is ```1``` and false is ```0```.
+
+In a logical expression the system stops evaluating when it already knows the result.
+So ```  0 && ( 5 > 3 ) ``` it doesn't even evaluates ``` 5 > 3 ``` since it knows that
+at ``` 0 && ... ``` the result will be false.
+A similar logical shortcut is for ``` 1 || (5 <= 3) ```, that knows after ``` 1 || ...```
+the result will be true and will not evaluate ``` 5 <= 3 ```.
+Using logical shortcut is useful, have a quick expressions on the left, and expressions that take a while to calculate on the right.
+
+Precendence of operators;
+```
+!
+*  /   %
++  -
+<  <=  >  >=
+== !=
+&&
+||
+```
+
+#### Conditional statements
+Now that we know expressions, we can use them to drive our program.
+```
+// if ( expression ) statement1 else statement2
+
+if (a > 0) a = a - 1;
+
+if (1) a = 1;
+
+if (a == b) c = 3 else c = 13;
+
+// indentation is not required but makes it readable
+if (a == b)
+  c = 3
+else
+  c = 13;
+
+// combine multiple statements into one compound-statement using { }
+if (b > 0) {
+  a = b;
+  c = b * 2;
+} else {
+  a = - b * 2
+  c = - b;
+}
+
+```
+
+Loops...
+
+```
+// while ( expression ) statement
+
+i = 0;
+while ( i < 100 ) {
+  i = i + 1;
+}
+
+// for (expression; expression; expression) statement
+
+for (i = 0; i < 100; i = i + 1) x = i;
+
+// you see that even for single statements its better to use { }
+
+for (i = 0; i < 100; i++) {
+  x = i;
+}
+
+// do statement while (expression);
+
+do {
+  i++;
+  // something here
+} while (i < 100);
+
+```
+
+#### Switch, break and continue
