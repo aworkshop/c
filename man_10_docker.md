@@ -13,7 +13,7 @@ apt-get install nano
 
 ## Using gcc
 
-We saw gcc that just compiles the source, using ```-o``` we can specify the
+We saw gcc that just compiles the source, using `-o` we can specify the
 name of the output executable.
 
 GCC is combining multiple phases;
@@ -28,7 +28,7 @@ Other options will be shown later.
 ## Using objdump
 
 Copy the 07_createfile.c to this image and compile it. We can look into
-the ```a.out``` sections in a hexdump format. Below we only show 1 section.
+the `a.out` sections in a hexdump format. Below we only show 1 section.
 
 ```
 # objdump -s a.out
@@ -97,10 +97,10 @@ Using the same objdump we can also disassemble.
 
 ```
 
-In the above sections, we see ```init```, we see ```printf``` and ```main```
-that calls functions like ```printf```. Many sections are not displayed here.
+In the above sections, we see `init`, we see `printf` and `main`
+that calls functions like `printf`. Many sections are not displayed here.
 
-Functions like ```printf``` have compiled code in _object files_ and
+Functions like `printf` have compiled code in _object files_ and
 are _linked_ with ours.
 
 
@@ -112,7 +112,7 @@ a.out: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linke
 #
 ```
 
-Here ```not stripped``` means it is not stripped from debug info.
+Here `not stripped` means it is not stripped from debug info.
 
 ## strip
 
@@ -230,7 +230,7 @@ int main(int argc, char *argv[]) {
     ...
 ```
 
-The ```-visualize-jumps``` option makes it easier to show these.
+The `-visualize-jumps` option makes it easier to show these.
 
 ```
 ...
@@ -251,9 +251,9 @@ The ```-visualize-jumps``` option makes it easier to show these.
 
 ## Modify jumps
 
-In the above disassembled code you see instructions like ```je``` jump-if-equal,
-and ```jne``` jump-if-not-equal. These have hexadecimal codes ```74``` and
-```75```. So if we get executable and want to modify the behavior, we can
+In the above disassembled code you see instructions like `je` jump-if-equal,
+and `jne` jump-if-not-equal. These have hexadecimal codes `74` and
+`75`. So if we get executable and want to modify the behavior, we can
 try to change that byte.
 
 

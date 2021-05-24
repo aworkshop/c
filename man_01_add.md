@@ -5,18 +5,18 @@ This first example is showing a couple of things that need attention. And it nee
 gcc 01_add.c
 ```
 
-This will show you warnings. And when you ```ls``` this folder there is a new file ```a.out```. And that is already your executable. You can run it by ```./a.out```. You see a prompt, and then type two numbers like ```32 64``` separated by a space or by a new line. It then responds with the calculated sum ```96```.
+This will show you warnings. And when you  `ls ` this folder there is a new file  `a.out `. And that is already your executable. You can run it by  `./a.out `. You see a prompt, and then type two numbers like  `32 64 ` separated by a space or by a new line. It then responds with the calculated sum  `96 `.
 
-When you look into the ```01_add.c``` file using a text editor like Atom, VSCode, etcetera, you can see the line number before every line. And that line number is used to discuss the code.
+When you look into the  `01_add.c ` file using a text editor like Atom, VSCode, etcetera, you can see the line number before every line. And that line number is used to discuss the code.
 
-So line numbers 3 and 5 print information, and line 4 is scanning information (our input). You also see on line 4 and 5 this ```%d``` used for the two numbers that are scanned and the sum that is printed, and this ```d``` is used for ```int``` integer values on line 2. There is also the ```\n``` on line 5 and this is just printing a newline character. Line 4 also has ```&a, &b``` and this is the most difficult! The ```scanf``` scan the input according to its format parameter. And stores the scanned values into the addresses of variables a and b. Remember that ```&a``` is the address of ```a```, or the pointer to ```a```.
+So line numbers 3 and 5 print information, and line 4 is scanning information (our input). You also see on line 4 and 5 this  `%d ` used for the two numbers that are scanned and the sum that is printed, and this  `d ` is used for  `int ` integer values on line 2. There is also the  `\n ` on line 5 and this is just printing a newline character. Line 4 also has  `&a, &b ` and this is the most difficult! The  `scanf ` scan the input according to its format parameter. And stores the scanned values into the addresses of variables a and b. Remember that  `&a ` is the address of  `a `, or the pointer to  `a `.
 
 
 **Advanced**
 
-When looking on my file system I see that the ```a.out``` is about 8 Kb in size.
+When looking on my file system I see that the  `a.out ` is about 8 Kb in size.
 It has all kind of binary code, debug information, but also the strings that you recognize from the source code.
-Use the ```strings``` command;
+Use the  `strings ` command;
 ```
 strings a.out
 Enter two numbers:

@@ -39,9 +39,9 @@ When a number ends with L, this is a Long and it reserves more memory space to c
 
 ## Character constants
 
-Remember in 01_add.c we used ```\n```. This is a character constant for a newline.
-The ```\``` backslash is called 'escape character'.
-Technically ```\n``` has different output on Linux and Windows, since they use different
+Remember in 01_add.c we used  `\n `. This is a character constant for a newline.
+The  `\ ` backslash is called 'escape character'.
+Technically  `\n ` has different output on Linux and Windows, since they use different
 characters for a newline.
 You might have seen the ASCII table.
 The CR and LF are values 13 and 10, or 0x0D and 0x0A.
@@ -81,7 +81,7 @@ Examples;
 "Hello, world!\n"
 "The answer is %d kilometers.\nAnd that is %d miles.\n"
 ```
-Technically this string takes up some memory space, containing every single character. And automatically every string ends with a null character ```\0```. So there is no need to explicitly end a string with a null character ourselves.
+Technically this string takes up some memory space, containing every single character. And automatically every string ends with a null character  `\0 `. So there is no need to explicitly end a string with a null character ourselves.
 
 For longer strings that you want to visually break up in your source code, use the escape character followed by a newline. When using that string, that escape character and newline
 are then not used.
@@ -159,13 +159,13 @@ Relational and logical operators;
 !     not
 ```
 
-In a logical expression in C, true is ```1``` and false is ```0```.
+In a logical expression in C, true is  `1 ` and false is  `0 `.
 
 In a logical expression the system stops evaluating when it already knows the result.
-So ```  0 && ( 5 > 3 ) ``` it doesn't even evaluates ``` 5 > 3 ``` since it knows that
-at ``` 0 && ... ``` the result will be false.
-A similar logical shortcut is for ``` 1 || (5 <= 3) ```, that knows after ``` 1 || ...```
-the result will be true and will not evaluate ``` 5 <= 3 ```.
+So  `  0 && ( 5 > 3 )  ` it doesn't even evaluates  ` 5 > 3  ` since it knows that
+at  ` 0 && ...  ` the result will be false.
+A similar logical shortcut is for  ` 1 || (5 <= 3)  `, that knows after  ` 1 || ... `
+the result will be true and will not evaluate  ` 5 <= 3  `.
 Using logical shortcut is useful, have a quick expressions on the left, and expressions that take a while to calculate on the right.
 
 Precendence of operators;
@@ -281,6 +281,6 @@ for (i=0;i<100;i++) {
 }
 
 ```
-Here we see also a new format symbol ```%f``` for float.
+Here we see also a new format symbol  `%f ` for float.
 There are more format symbols and, there are also options to specify a width,
 a precision, left or right alignment, etcetera.

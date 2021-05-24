@@ -9,7 +9,7 @@ echo "Hello HackDeWereld and HackTheBox."|./a.out
 00000020: 78 2e 0a                                        |x..             |
 ```
 
-Using ```#define``` is useful to define a single place that can be reused
+Using `#define` is useful to define a single place that can be reused
 in the code. These are NOT constants. The pre-compile will replace all
 occurrences in the code with its value. So this has implications. When there
 is a larger expression, and it is used often, consider making a function
@@ -21,7 +21,7 @@ int j = ABS(a*2+b); // expanded to: a*2+b+1>0?a*2+b:-a*2+b;
                     //                              ^^^^^^
 ```
 
-The fread() is reading from a FILE, in this case ```stdin```. It is reading
-into the ```inp``` with ```LEN``` * ```sizeof(char)``` size. Then ```n```
-contains the number that was really read. The ```sizeof()``` returns the
-size in bytes of a type. For ```int``` or ```long``` it requires more.
+The fread() is reading from a FILE, in this case `stdin`. It is reading
+into the `inp` with `LEN` * `sizeof(char)` size. Then `n`
+contains the number that was really read. The `sizeof()` returns the
+size in bytes of a type. For `int` or `long` it requires more.

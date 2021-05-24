@@ -1,6 +1,6 @@
 ## Arrays and Pointers
 
-An array declaration ```int x[10];``` means that we can now use ```x[0]``` up to ```a[9]```, so 10 elements.
+An array declaration `int x[10];` means that we can now use `x[0]` up to `a[9]`, so 10 elements.
 
 A pointer contains the address of an element.
 
@@ -14,9 +14,9 @@ Address Value
 0003    86
 ```
 
-Suppose ```p``` is a pointer to ```v```. This means that ```p = & v```, p is the address of v. That means that ```p``` has value ```2```.
+Suppose `p` is a pointer to `v`. This means that `p = & v`, p is the address of v. That means that `p` has value `2`.
 
-Of course we can assign a new value to ```v```, but we can also do that now via ```*p = 16;``` the object at ```p``` becomes 16. So does ```v```!
+Of course we can assign a new value to `v`, but we can also do that now via `*p = 16;` the object at `p` becomes 16. So does `v`!
 
 Try to memorize; that & is the 'Address of' and * is the 'Object (at address)'.
 
@@ -41,7 +41,7 @@ p = x;        // x and p are both pointers to int
 print("%d", ++p);  // prints x[1] so 5
 ```
 
-Warning: it is easy to make a mistake, like ```x[10] = 1;``` because ```x[9]``` is the last element.
+Warning: it is easy to make a mistake, like `x[10] = 1;` because `x[9]` is the last element.
 
 
 **Advanced**

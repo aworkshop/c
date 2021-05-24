@@ -14,7 +14,7 @@ struct person {
 struct person u;
 ```
 
-This declares a struct type ```person``` and ```s, t, u``` are declared to be
+This declares a struct type `person` and `s, t, u` are declared to be
 of that type. From then on the person type can be used again.
 
 The variables can be used like this;
@@ -147,12 +147,12 @@ int answer();
 
 #endif
 ```
-So when the compiler already knows about ```__FUNC_H__``` then it skips
+So when the compiler already knows about `__FUNC_H__` then it skips
 declaring it again.
 
 ## register
 
-Declare an int with ```register``` to store this int in a processor register
+Declare an int with `register` to store this int in a processor register
 instead of in a memory location. This can make the application faster.
 Modern compilers probably already optimize for it.
 
@@ -194,7 +194,7 @@ p->userInput = "Unknown";
 ```
 
 ## typedef
-Using ```typedef``` declare a type with a name.
+Using `typedef` declare a type with a name.
 
 ```
 typedef double MYREALTYPE;

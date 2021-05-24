@@ -6,9 +6,9 @@ Line 4 shows two parameters that are passed from
 the command line to the program. The first is an
 argument count, and the second is an argument value
 array of strings. In this array, the first
-argument ```argv[0]``` is the executable name itself.
+argument `argv[0]` is the executable name itself.
 So on line 5 we check if the argument count is correct. And it prints a Usage when not.
-Lines 9 is taking the next argument and converts it to a long using the ```atol()``` function. Line 10 assigns the name to the last argument, this ```char *``` is a string. And line 11 prints it, where format specifier ```%ld``` is long decimal and ```%s``` is string.
+Lines 9 is taking the next argument and converts it to a long using the `atol()` function. Line 10 assigns the name to the last argument, this `char *` is a string. And line 11 prints it, where format specifier `%ld` is long decimal and `%s` is string.
 
 Lines 13..17 creates the file with the given size and name.
 

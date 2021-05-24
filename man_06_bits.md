@@ -13,7 +13,7 @@ The result of 10 >> 02 is 04.
 The result of ~11 is FFFFFFEE.
 ```
 
-In this example we also saw a format string ```%02X``` this is hexadecimal in
+In this example we also saw a format string `%02X` this is hexadecimal in
 capitals and 2 wide with leading zeroes.
 We also see that int is 4 bytes on this system.
-The ```limits.h``` has these limits defined.
+The `limits.h` has these limits defined.
