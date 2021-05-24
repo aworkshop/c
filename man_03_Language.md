@@ -3,7 +3,7 @@ Inspired by the book 'de programmeertaal C', from ir. L. Ammeraal, Academic Serv
 
 ## Identifiers
 
-A variable name or identifier is a series of characters and digits. It can contain lowercase and uppercase and even an underscore. Examples are;
+A variable name or identifier is a series of characters and digits. It can contain lowercase and uppercase and even an underscore. It cannot start with a digit. Examples are;
 ```
 a
 my_name
@@ -25,8 +25,10 @@ unsigned, while
 In the first program we typed our numbers, but when these numbers are always the same, these are constant. Here are examples of integer constants.
 ```
 144
+-10
 0777
 0XFFFF
+0xCAFEBABE
 42L
 ```
 These are in Decimal, Octal, Hexadecimal and Long Decimal format.
@@ -39,9 +41,9 @@ When a number ends with L, this is a Long and it reserves more memory space to c
 
 ## Character constants
 
-Remember in 01_add.c we used  `\n `. This is a character constant for a newline.
-The  `\ ` backslash is called 'escape character'.
-Technically  `\n ` has different output on Linux and Windows, since they use different
+Remember in 01_add.c we used `\n`. This is a character constant for a newline.
+The `\` backslash is called 'escape character'.
+Technically `\n` has different output on Linux and Windows, since they use different
 characters for a newline.
 You might have seen the ASCII table.
 The CR and LF are values 13 and 10, or 0x0D and 0x0A.
@@ -111,7 +113,7 @@ int a, /* comment */ b;
 ```
 And can be anywhere in the source code, since it has a beginning and an end. So it can even be in the middle of a line of code.
 
-Single line comments are always at the end of a the line of code, it ends with the line;
+Single line comments are always at the end of a the line of code, it ends with the newline;
 ```
 // comment until the end of the line
 
@@ -131,6 +133,8 @@ y = a / b;
 y = 17 / 3;    // 17/3 = 5 if y is an int
 y = 17. / 3;   // 17./3 = 5.666666...
 y = 17 % 3;    // 17 modulo 3 = 2 (the remainder)
+y = abs( b );  // function call
+y = a > 0;     // comparison results in 0 or 1
 ```
 Declaring and assigning these;
 ```
@@ -146,7 +150,8 @@ int main() {
   a = ch;     // a gets ASCII character value 65
 }
 ```
-Relational and logical operators;
+
+## Relational and logical operators;
 ```
 <     less than
 >     greater than
@@ -159,14 +164,15 @@ Relational and logical operators;
 !     not
 ```
 
-In a logical expression in C, true is  `1 ` and false is  `0 `.
+In a logical expression in C, true is `1` and false is `0`.
 
 In a logical expression the system stops evaluating when it already knows the result.
-So  `  0 && ( 5 > 3 )  ` it doesn't even evaluates  ` 5 > 3  ` since it knows that
-at  ` 0 && ...  ` the result will be false.
-A similar logical shortcut is for  ` 1 || (5 <= 3)  `, that knows after  ` 1 || ... `
-the result will be true and will not evaluate  ` 5 <= 3  `.
-Using logical shortcut is useful, have a quick expressions on the left, and expressions that take a while to calculate on the right.
+So `0 && ( 5 > 3 )` it doesn't even evaluates `5 > 3` since it knows that
+at `0 && ...` the result will be false.
+A similar logical shortcut is for `1 || (5 <= 3)`, that knows after `1 || ...`
+the result will be true and will not evaluate `5 <= 3`.
+Using logical shortcut is useful, have a quick expressions on the left,
+and expressions that take a while to calculate on the right.
 
 Precendence of operators;
 ```
@@ -207,28 +213,42 @@ if (b > 0) {
 
 ```
 
-Loops...
+## while, for, and do-while loop
+Loops repeat the same code until a condition is invalid.
 
+The `while` has its condition at the beginning of the loop, and it will be
+evaluated again after the end of the statement. Make sure that this loop
+is not infinite. Alter variables in the loop that are used in the expression.
+Or `break` out of the loop.
 ```
 // while ( expression ) statement
-
 i = 0;
 while ( i < 100 ) {
   i = i + 1;
 }
+```
 
+A `for` looks a bit like this previous while. But combines the 3 expressions.
+The first expression is executed once. Then the second expression is evaluated,
+and when true then the statement is executed. At the end of the statement the
+third expression is executed. Then the second iteration starts by evaluating
+the second expression again.
+```
 // for (expression; expression; expression) statement
-
+int i;
 for (i = 0; i < 100; i = i + 1) x = i;
 
 // you see that even for single statements its better to use { }
-
 for (i = 0; i < 100; i++) {
   x = i;
 }
+```
 
+
+And the do-while has the condition at the end. Note the `;` after the
+expression. Make sure it is not an infinite loop.
+```
 // do statement while (expression);
-
 do {
   i++;
   // something here
@@ -239,16 +259,22 @@ do {
 ## Switch, break and continue
 When you want to work with multiple options, the switch-case can be used.
 ```
+// the expression is of type int or char
 switch (ch) {
   case 'A': printf("Aardvark\n"); break;
+  case 'B': printf("Bear\n"); break;
+  case 'C': printf("Cat\n"); break;
   case 'Z': printf("Zebra\n"); break;
-  default:  printf("Some animal\n");break;
+  default : printf("Some animal\n"); break;
 }
+```
+After each `:` multiple statements can be executed until `break`. That stops
+the `case` and leaves the `switch` statement.
 
-// the expression is of type int or char
-
-
-// the following example is missing a break
+In the following example, the `break` is missing. This can be on-purpose,
+or a bug.
+```
+// missing a break at 8080
 switch (port) {
   case 8080:
     // no break so continues into the next case
@@ -264,23 +290,28 @@ switch (port) {
     printf("The port is not yet in the list.\n");
     break;
 }
+```
 
-// break can also be used in loops
+Other use of `break` is to break out of a loop.
+```
 while (a < b) {
   a++;
   if (a > c)
     break; // breaks the while loop
   d = a + b;
 }
+```
 
-// continue is used in loops to skip and continue with the next iteration
+And `continue` in a loop is to stop the loop and continue with the next
+iteration.
+```
 for (i=0;i<100;i++) {
   scanf("%d", &a);
-  if (a<=0) continue;
-  printf("100 divided by %d is %f\n", a, 100./a)
+  if (a<=0)
+    continue;
+  printf("100 divided by %d is %5.2f\n", a, 100./a)
 }
-
 ```
-Here we see also a new format symbol  `%f ` for float.
-There are more format symbols and, there are also options to specify a width,
-a precision, left or right alignment, etcetera.
+
+Here we see also a new format symbol `%5.2f` for float. A float can be
+written as `%f`, but here it also specifies the width, and precision.

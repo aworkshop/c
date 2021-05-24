@@ -104,6 +104,7 @@ int answer() {
 The source is defining.
 
 ```
+#include <stdio.h>
 #include "func.h"
 
 int main() {
