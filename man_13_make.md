@@ -8,7 +8,7 @@ make 02_add
 ```
 
 It checks if there is a `Makefile` present in the current folder. Suppose
-there is not one. Then it automatically looks for the `.c` file and builds
+there is *not* one. Then it automatically looks for the `.c` file and builds
 the executable with the same name using the `-o` option.
 
 ## make (with Makefile)
@@ -73,5 +73,5 @@ $ ./13_app
 
 $ make clean
 rm 13_func.o 13_main.o 13_app
-$
+
 ```

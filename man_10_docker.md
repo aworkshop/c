@@ -16,7 +16,7 @@ apt-get install nano
 We saw gcc that just compiles the source, using `-o` we can specify the
 name of the output executable.
 
-GCC is combining multiple phases;
+GCC is combining _multiple phases_;
 - Pre-process (pre-compile)
 - Compile
 - Assemble
