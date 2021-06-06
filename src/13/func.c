@@ -1,5 +1,5 @@
 // func.c
-#include "13_func.h"
+#include "func.h"
 
 int answer() {
   return 42;

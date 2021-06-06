@@ -5,6 +5,6 @@ int main() {
   do {
     ch = getchar();
     putchar(ch);
-  } while(ch != '?');
+  } while( ch != '?' );
   putchar('\n');
 }

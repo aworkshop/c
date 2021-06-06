@@ -1,3 +1,16 @@
+# Theory (part 3)
+
+## Contents
+
+This theory section contains:
+- Arrays and Pointers
+- Function arguments passed "by value"
+- Function arguments passed "by reference"
+
+Advanced
+- Pointer mis-use
+
+
 ## Arrays and Pointers
 
 An array declaration `int x[10];` means that we can now use `x[0]` up to `a[9]`, so 10 elements.
@@ -43,10 +56,52 @@ print("%d", ++p);  // prints x[1] so 5
 
 Warning: it is easy to make a mistake, like `x[10] = 1;` because `x[9]` is the last element.
 
+### example 08/arrays.c
 
-**Advanced**
+Example 08/arrays.c contains some bugs. 
+* bug 1 = string is not finished with '\0' byte.
+* bug 2 = pointer to string calculation is wrong
+* bug 3 = use uninitialized array on the stack
 
-What could happen? Let us look at memory addresses again;
+
+### void pointer
+
+A `(void *)` is a void pointer, it means that it is a pointer to
+anything. Can point to integer or char, etc. Cast it back to use it.
+
+
+
+## Function arguments passed "by value"
+
+A function is called with a variable or constant.
+The function uses these argument vars locally within the function.
+Any change is also only locally, while the function runs.
+So the *value* is passed to the function.
+```
+my_function( i );
+my_function( 42 );
+```
+
+
+## Function arguments passed "by reference"
+
+A function is called with the address (=pointer) to a variable.
+The function can use and even *change* the original value.
+So the *reference* is passed to the function.
+```
+#define SIZE 100
+char buffer[SIZE];
+int i = 21;
+times_two( &i );
+fill_buffer( buffer, SIZE );
+```
+
+
+
+## Pointer mis-use
+
+What could happen if you make a mistake?
+Let us look at memory addresses again;
 ```
 int a, b, y[3], c, *p;
 p=y;
@@ -62,4 +117,23 @@ Address int (4 bytes)
 0018    ?     <-- ?
 ```
 
-Newer languages than C often stop you from doing things like this. But this flexibility is also very powerful. Not all addresses in a computer are memory, some addresses are used for hardware like ports and video.
+Newer languages than C often stop you from doing things like this.
+
+Why is it allowed in C? This flexibility is very powerful.
+It is very fast, passing pointers to memory blocks instead of the blocks completely themselves.
+And, not all addresses in a computer are memory, some addresses are used for hardware like ports and video.
+
+
+### Attack
+
+A call to a function means the system needs to know _where to continue after the call_. So it pushes the program_counter to the stack.
+And the function arguments are pushed to the stack.
+At the end of the function, it pops these from the stack.
+And it pops the program_counter from the stack, and so continues where it left of.
+
+Because the program_counter and arguments are stored very close to each other in the stack memory, it is vulnerable that a bug can a change the program_counter.
+And then the program can pop the altered program_counter from the stack. And continues to run there.
+
+An attacker could try to take advantage of this.
+Input normal data, but hide also compiled code in it.
+Alter the program_counter to point to your compiled code.

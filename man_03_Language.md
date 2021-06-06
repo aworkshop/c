@@ -1,5 +1,24 @@
-# Theory
+# Theory (part 1)
+
 Inspired by the book 'de programmeertaal C', from ir. L. Ammeraal, Academic Service, 4th edition 1987.
+But is is not a copy.
+
+## Contents
+
+This theory section contains:
+- Identifiers
+- Keywords
+- Integer constants
+- Character constants
+- Floating point constants
+- String constants
+- Comment
+- Expressions
+- Relational and logical operators
+- Conditional statements
+- Loops: while, for, and do-while
+- Switch, break and continue
+
 
 ## Identifiers
 
@@ -21,32 +40,33 @@ return, short, sizeof, static, struct, switch, typedef, union,
 unsigned, while
 ```
 
+
 ## Integer constants
 In the first program we typed our numbers, but when these numbers are always the same, these are constant. Here are examples of integer constants.
 ```
-144
--10
-0777
-0XFFFF
-0xCAFEBABE
-42L
+144             positive int
+-10             negative int
+0777            octal int
+0XFFFF          hexadecimal int
+0xCAFEBABE      hexadecimal int
+42L             long int
 ```
 These are in Decimal, Octal, Hexadecimal and Long Decimal format.
 
-Octal starts with a zero then digits 0..7.
+* Octal starts with a zero then digits 0..7.
+* Hexadecimal starts with 0X or 0x and then digits 0..9 and A..F or a..f.
+* When a number ends with L, this is a Long and it reserves more memory space to contain larger values.
 
-Hexadecimal starts with 0X or 0x and then digits 0..9 and A..F or a..f.
-
-When a number ends with L, this is a Long and it reserves more memory space to contain larger values.
 
 ## Character constants
 
-Remember in 01_add.c we used `\n`. This is a character constant for a newline.
+Remember in 01/add.c we used `\n`. This is a character constant for a newline.
 The `\` backslash is called 'escape character'.
+
 Technically `\n` has different output on Linux and Windows, since they use different
 characters for a newline.
 You might have seen the ASCII table.
-The CR and LF are values 13 and 10, or 0x0D and 0x0A.
+The `CR` and `LF` are values `13` and `10`, or `0x0D` and `0x0A`.
 
 ```
 '\n'      new line
@@ -61,7 +81,7 @@ The CR and LF are values 13 and 10, or 0x0D and 0x0A.
 
 ## Floating point constants
 
-Examples of double precision;
+Examples of  floating point constants;
 ```
 3.1415
 .01
@@ -151,7 +171,8 @@ int main() {
 }
 ```
 
-## Relational and logical operators;
+## Relational and logical operators
+
 ```
 <     less than
 >     greater than
@@ -164,17 +185,24 @@ int main() {
 !     not
 ```
 
-In a logical expression in C, true is `1` and false is `0`.
+In a logical expression in C, 
+* true is `1` and 
+* false is `0`.
+
+A bug is to use `=` instead of `==`. 
+What happens here: `if ((pin=8179)) give_money();`.
+
+### Logical shortcut
 
 In a logical expression the system stops evaluating when it already knows the result.
-So `0 && ( 5 > 3 )` it doesn't even evaluates `5 > 3` since it knows that
-at `0 && ...` the result will be false.
-A similar logical shortcut is for `1 || (5 <= 3)`, that knows after `1 || ...`
-the result will be true and will not evaluate `5 <= 3`.
-Using logical shortcut is useful, have a quick expressions on the left,
-and expressions that take a while to calculate on the right.
 
-Precendence of operators;
+So expression `0 && ( 5 > 3 )` it doesn't even evaluates `5 > 3` since it knows that at `0 && ...` the result will be false.
+A similar logical shortcut is for `1 || (5 <= 3)`, that knows after `1 || ...` the result will be true and will not evaluate `5 <= 3`.
+Using logical shortcut is useful, have a quick expressions on the left, and expressions that take a while to calculate on the right.
+
+
+### Precendence of operators
+Operator list in descending order of execution;
 ```
 !
 *  /   %
@@ -213,7 +241,7 @@ if (b > 0) {
 
 ```
 
-## while, for, and do-while loop
+## Loops: while, for, and do-while
 Loops repeat the same code until a condition is invalid.
 
 The `while` has its condition at the beginning of the loop, and it will be
@@ -277,7 +305,8 @@ or a bug.
 // missing a break at 8080
 switch (port) {
   case 8080:
-    // no break so continues into the next case
+    // no break so continues into the next case.
+    // fallthrough.
   case 80:
     printf("Port http\n");
     printf("Try to change this port to 443\n");
@@ -315,3 +344,6 @@ for (i=0;i<100;i++) {
 
 Here we see also a new format symbol `%5.2f` for float. A float can be
 written as `%f`, but here it also specifies the width, and precision.
+
+
+---

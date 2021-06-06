@@ -1,17 +1,36 @@
-## Using docker or a vm and tools
+## Tools
 
-When you don't have the compiler, try to use docker. Install the compiler and
-debugger.
+Some initial stuff on tools.
+
+- docker
+- gcc
+- objdump
+- file
+- strip
+- gcc with gdb debug information
+- objdump with debug info
+- modify jumps
+- ltrace
+
+
+## Using docker
+
+When you don't have the compiler, try to use docker. 
 ```
-docker run -it ubuntu
-apt-get update
-apt-get install gcc
-apt-get install gdb
-apt-get install ltrace
-apt-get install nano
+$ docker run -it ubuntu
+```
+Install the compiler etc.
+```
+# apt-get update
+# apt-get install gcc
+# apt-get install gdb
+# apt-get install ltrace
+# apt-get install nano
 ```
 
 ## Using gcc
+
+GCC = [GNU Compiler Collection](https://gcc.gnu.org/)
 
 We saw gcc that just compiles the source, using `-o` we can specify the
 name of the output executable.
@@ -27,7 +46,7 @@ Other options will be shown later.
 
 ## Using objdump
 
-Copy the 07_createfile.c to this image and compile it. We can look into
+Copy the 07/createfile.c to this image and compile it. We can look into
 the `a.out` sections in a hexdump format. Below we only show 1 section.
 
 ```
@@ -131,7 +150,7 @@ When you start gdb and it tells you that you miss debug info, you can add that
 to the file. This file will be larger.
 
 ```
-# gcc -ggdb 07_createfile.c
+# gcc -ggdb createfile.c
 # ls -l a.out
 -rwxr-xr-x 1 root root 19632 May 23 14:13 a.out
 # gdb a.out
@@ -263,7 +282,7 @@ With our example code, the ltrace has almost no useful output. So try this on
 your own larger apps yourself.
 
 ```
-# gcc -ggdb 09_hexdump.c -o hd
+# gcc -ggdb hexdump.c -o hd
 # echo "Hello World." | ltrace  ./hd
 ...
 ```

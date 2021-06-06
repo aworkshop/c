@@ -5,7 +5,7 @@ enum boolean {false, true}; // false 0, true 1
 enum days {Mon, Tue, Wed, Thu, Fri, Sat, Sun};
 
 // override ints 0..3 with our values
-enum wind {East=1, West=2, North=3, South=4};
+enum wind {East=90, West=270, North=0, South=180};
 
 // use powers of 2
 enum settings { //int has 32 bits
@@ -45,5 +45,5 @@ int main(void){
       printf("Off\n");
       break;
   }
-
+  printf("West is %d degrees.\n", West);
 }

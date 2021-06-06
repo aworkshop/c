@@ -11,10 +11,10 @@ char dtype(struct dirent *entry) {
     case DT_UNKNOWN: t = 'U'; break;
     case DT_FIFO: t = 'F'; break;
     case DT_CHR: t = 'C'; break;
-    case DT_DIR: t = 'D'; break;
+    case DT_DIR: t = '/'; break; // directory
     case DT_BLK: t = 'B'; break;
-    case DT_REG: t = 'R'; break;
-    case DT_LNK: t = 'L'; break;
+    case DT_REG: t = ' '; break; // regular file
+    case DT_LNK: t = '>'; break; // link
     case DT_SOCK: t = 'S'; break;
     case DT_WHT: t = 'W'; break;
     default:  t = '?'; break;
@@ -24,14 +24,18 @@ char dtype(struct dirent *entry) {
 
 DIR *dir;
 struct dirent *entry;
-struct restrict st;
 
-int main(void) {
+int main(int argc, char *argv[]) {
 
-  dir = opendir(".");
+  if (argc==1)
+    dir = opendir(".");
+  else if (argc==2)
+    dir = opendir(argv[1]);
+  else
+    exit(1);
+  //
   while((entry = readdir(dir))!=NULL) {
-    int s = stat(entry->d_name, &st);
-    printf("%c;%s,%d\n", dtype(entry), entry->d_name, st->st_size);
+    printf("%s %c\n", entry->d_name, dtype(entry) );
   }
   closedir(dir);
 }

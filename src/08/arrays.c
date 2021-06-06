@@ -54,14 +54,14 @@ void myEmpty() {
  00 00 0a 00 00 00 3f 00 00 00
  */
 int main(void){
-  printf("'%s'.\n", myChars);
+  printf("'%s'.\n", myChars); // bug 1
   printf("'%s'.\n", myChars2);
 
   myFor( myOther2 );
   myWhile( p   );
 
-  myWhile( p -4 -15 ); // bug
-  myEmpty(); // bug
+  myWhile( p -4 -15 ); // bug 2
+  myEmpty(); // bug 3
 
   exit(EXIT_SUCCESS);
 }

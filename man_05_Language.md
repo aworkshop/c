@@ -1,3 +1,18 @@
+# Theory (part 2)
+
+## Contents
+
+This theory section contains:
+- Operators
+- Bitwise Operators
+- Ternary operator
+- Comma operator
+
+Advanced
+- Positive values (bit representation)
+- Negative values (bit representation)
+
+
 ## Operators
 
 Some is already shown.
@@ -10,34 +25,14 @@ The above can be rewritten as;
 a += b;
 i++;
 ```
-The unary operators;  `++ ` is an increment and there is also a decrement  `-- `.
-Unary means that it operates on one variable.
-Binary operators like  `+ ` work on two variables.
+The unary operators;  `++` increment and decrement  `--`.
+Unary means that it operates on 1 variable.
 
-Now it becomes exiting!
-```
-i = 0;
-a = (i++)*5;
-b = (++i)*5;
-```
-What are a and b?
+Binary operators, like `+`, work on 2 variables.
 
-For a, we see that i is 0, so a is 0, but after (!) that i is incremented by 1.
 
-For b, we see that i is 1 because it was incremented in the previous statement,
-and it has  `++i ` so it is incremented before (!) the expression, so i becomes 2, so b is then 10.
-
-The  `++ ` and  `-- ` have higher priorities than even  `* / %  `, so
-it is not required to have it within brackets.
-
-Would this work? No. The compiler doesn't know what to set to i in the last line (which of the 3 i's will when be incremented?).
-```
-i = 0;
-i += i+++++i;
-```
-
-These operators can be used together with an assignment operator.
-And these have the lowest priority.
+These following operators can be used together with an assignment operator.
+And have the lowest priority.
 ```
 Oper   Expr   Expr      
 +=     a+=b   a=a+b
@@ -66,18 +61,20 @@ Oper   Expr   Expr
 
 For this it is useful to know about bits and bytes.
 
-See the 06_bits.c
+See the 06/bits.c
 
 
 ## Ternary operator
 We learned about unary and binary operators, and there is a ternary too.
 It looks like a quick if-then-else expression using
- ` expression ? expression_true : expression_false `.
+* `expression ? expression_true : expression_false`
 
 Examples;
 ```
 a = -1;
+
 str = a >= 0 ? "Positive" : "Negative";
+
 x = a < b ? a+1 : b-1;
 ```
 
@@ -92,3 +89,74 @@ while (scanf("%d", &n), n>0) s+=n;
 ```
 
 The two expressions in  `while() ` are evaluated left to right, so first a number can be entered, then it is tested if it is a positive number, and while it is, it is added to  `s `.
+
+
+
+# Advanced
+
+## Positive values (bit representation)
+
+A byte has 8 bits, two nibbles, `0000 0000`. The most left bit represents the
+highest value (128), and most right bit the lowest value (1). When all bits are
+set `1111 1111` this is 255 (=128+64+32+16+8+4+2+1). Which is nice when working
+with positive values 0..255 only.
+
+Positive  | Int
+---       | ---
+0000 0000 | 0
+0000 0001 | 1
+0000 0010 | 2
+...       | ...
+1111 1110 | 254
+1111 1111 | 255
+
+_But how to represent negative values?_
+
+
+## Negative values (bit representation)
+
+### Two's complement
+
+Suppose we want -128..127 to be stored in our 8 bits. The left most bit then
+represents -128 when set, and the other bits are just represent the regular
+64..1 positive values. This is called two's complement.
+
+Two's complement | Int
+---              | ---
+`1000 0000` | -128
+`1000 0001` | -127
+`1000 0010` | -126
+...       | ...
+`1111 1111` |  -1
+`0000 0000` |  0
+`0000 0001` |  1
+`0111 1111` |  127
+
+
+### One's complement
+
+Other implementation is `-127..127`. It just inverts the bits of the positive
+representation. Note that it has a both -0 and 0. This is called one's complement.
+
+
+One's complement | Int
+---              | ---
+`1000 0000` | -127
+`1000 0001` | -126
+...       | ...
+`1111 1101` | -2
+`1111 1110` | -1
+`1111 1111` | -0
+`0000 0000` | 0
+`0000 0001` | 1
+`0000 0010` | 2
+...       | ...
+`0111 1110` | 126
+`0111 1111` | 127
+
+These are two implementations; One's complement, and Two's complement.
+(https://en.wikipedia.org/wiki/Ones%27_complement)
+(https://en.wikipedia.org/wiki/Two%27s_complement)
+
+
+---
