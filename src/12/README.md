@@ -124,3 +124,6 @@ So (%r.. are processor registers);
 - pushq %rbp ; pushes 64 bit base pointer to the stack
 - movq %rsp, %rbp; moves 64 bit stack pointer to the base pointer
 - subq	$16, %rsp; substracting 16 from the stack pointer (stack grows down)
+
+---
+|[TOC](../../README.md) | [Prev](../11/README.md) |[Next](../13/README.md)|

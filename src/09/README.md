@@ -25,3 +25,36 @@ The fread() is reading from a FILE, in this case `stdin`. It is reading
 into the `inp` with `LEN` * `sizeof(char)` size. Then `n`
 contains the number that was really read. The `sizeof()` returns the
 size in bytes of a type. For `int` or `long` it requires more.
+
+
+## 09/arrays.c
+
+Look in the code itself. 
+
+It shows more more includes, functions, while- and for-loops. Some new functions
+like `strlen()`, `putchar()` and `toupper()`.
+
+But the focus here is arrays.
+**A char array must always end with '\0'.** And it has a demo that goes wrong.
+
+And then there is some pointer calculations with side-effects.
+
+
+## 09/strings.c
+
+Look in the code itself. 
+
+It shows more from the `string.h`; `strcmp()`, `strcpy()`, `strcat()`, `strlen()`, `strtok()`.
+
+And a variation `fprintf()` that can print to `FILE*`, in this case to `stderr` and `stdout`.
+
+## 09/memory.c
+
+Look in the code itself.
+
+It shows `malloc()`, `calloc()` and `free()`, when you want to allocate and free memory blocks to store 
+strings, arrays, structures, etcetera.
+
+
+---
+|[TOC](../../README.md) | [Prev](../08/README.md) |[Next](../10/README.md)|

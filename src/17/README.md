@@ -41,3 +41,7 @@ new thread for every request. Then every thread can take its own time
 to get the data and send that back to the client.
 
 See 18 for threads.
+
+
+---
+|[TOC](../../README.md) | [Prev](../16/README.md) |[Next](../18/README.md)|

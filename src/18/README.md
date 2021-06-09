@@ -78,3 +78,7 @@ $ gcc thread.c -lpthreads -o thread
 ld: library not found for -lpthreads
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
+
+
+---
+|[TOC](../../README.md) | [Prev](../17/README.md) |[Next](../19/README.md)|

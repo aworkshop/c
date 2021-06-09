@@ -3,4 +3,4 @@ enum: enum.c
 	gcc enum.c -o enum
 
 clean:
-	rm enum
+	rm -fv enum a.out

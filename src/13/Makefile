@@ -17,4 +17,4 @@ main.o: main.c
 	gcc $(compflags) -o main.o main.c
 
 clean:
-	rm $(objects) app
+	rm -fv $(objects) app

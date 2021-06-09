@@ -6,7 +6,7 @@ i = 0;
 a = (i++)*5;
 b = (++i)*5;
 ```
-What are a and b?
+What are the values of a, b and i?
 
 For a, we see that i is 0, so a is 0, but after (!) that i is incremented by 1.
 
@@ -87,3 +87,6 @@ capitals and 2 wide with leading zeroes.
 
 We see that int is 4 bytes (the hexadecimal is 8 characters) on this system.
 The `limits.h` has limits defined.
+
+---
+|[TOC](../../README.md) | [Prev](../05/README.md) |[Next](../07/README.md)|

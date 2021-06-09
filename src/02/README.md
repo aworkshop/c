@@ -15,13 +15,18 @@ Open your terminal and compile and link it.
 It assumes you already have gcc; if you don't, look up the 'docker' lesson.
 
 ```
-$ gcc add.c
+$ gcc add1.c
+... warnings shown
+$ ls
+README.md       a.out           add1.c          add2.c
 ```
 
 This will show you warnings.
 And when you `ls` this folder there is a new file `a.out`.
 And that is already your executable.
+
 You can run it by  `./a.out`.
+
 You see a prompt, and then type two numbers like  `32 64` separated by a space
 or by a new line. It then responds with the calculated sum  `96`.
 
@@ -44,7 +49,7 @@ Scanf needs that address to change the value at that address.
 
 
 
-### Explaining 02/add2.c
+## Explaining 02/add2.c (fixing the warnings)
 
 When compiling the previous example 1, you noticed warnings. 
 
@@ -76,14 +81,16 @@ int main() {
 
 One thing left to do. We had to run `./a.out`, but there is an option to the gcc compiler to directly create the proper output name.
 ```
-$ gcc add.c -o add
+$ gcc add2.c -o add2
 ```
-Then we can execute the application using `./add`.
+Then we can execute the application using `./add2`.
 
 Note, do not type anything else than whole numbers as input, because unexpected things can happen... There is no input validation.
 
 
-## Advanced: the executable file
+
+# Advanced
+## The executable file
 
 When looking on my file system using `ls -l` I see that the `a.out` is about **8 Kb** in size.
 It contains all kind of binary code, debug information, but also the strings that you recognize from the source code.
@@ -127,3 +134,5 @@ a.out: Mach-O 64-bit executable x86_64
 ```
 The output depends on the operating system and processor.
 
+---
+|[TOC](../../README.md) | [Prev](../01/README.md) |[Next](../03/README.md)|

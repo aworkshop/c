@@ -15,4 +15,4 @@ phone: phone.c
 testme: testme.c
 	gcc testme.c -o testme
 clean:
-	rm ascii atbash base64decode count patch phone testme a.out
+	rm -fv ascii atbash base64decode count patch phone testme a.out

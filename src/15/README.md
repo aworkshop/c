@@ -102,4 +102,7 @@ instead of using int values for everything, it is more restricted).
   enum wind w1 = West;
   enum wind w2 = On;     // compiler warning!
 ```
+
+
 ---
+|[TOC](../../README.md) | [Prev](../14/README.md) |[Next](../16/README.md)|

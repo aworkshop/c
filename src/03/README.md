@@ -196,9 +196,12 @@ What happens here: `if ((pin=8179)) give_money();`.
 
 In a logical expression the system stops evaluating when it already knows the result.
 
-So expression `0 && ( 5 > 3 )` it doesn't even evaluates `5 > 3` since it knows that at `0 && ...` the result will be false.
-A similar logical shortcut is for `1 || (5 <= 3)`, that knows after `1 || ...` the result will be true and will not evaluate `5 <= 3`.
+- So expression `0 && ( 5 > 3 )` it doesn't even evaluates `5 > 3` since it knows that at `0 && ...` the result will be false.
+- A similar logical shortcut is for `1 || (5 <= 3)`, that knows after `1 || ...` the result will be true and will not evaluate `5 <= 3`.
+
 Using logical shortcut is useful, have a quick expressions on the left, and expressions that take a while to calculate on the right.
+
+ **It can mean that a function is not executed**.
 
 
 ### Precendence of operators
@@ -213,7 +216,7 @@ Operator list in descending order of execution;
 ||
 ```
 
-## Conditional statements
+## Conditional statements if-then-else
 Now that we know expressions, we can use them to drive our program.
 ```
 // if ( expression ) statement1 else statement2
@@ -252,6 +255,7 @@ Or `break` out of the loop.
 // while ( expression ) statement
 i = 0;
 while ( i < 100 ) {
+  x = i;
   i = i + 1;
 }
 ```
@@ -278,8 +282,8 @@ expression. Make sure it is not an infinite loop.
 ```
 // do statement while (expression);
 do {
+  x = i;
   i++;
-  // something here
 } while (i < 100);
 
 ```
@@ -347,3 +351,4 @@ written as `%f`, but here it also specifies the width, and precision.
 
 
 ---
+|[TOC](../../README.md) | [Prev](../02/README.md) |[Next](../04/README.md)|

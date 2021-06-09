@@ -1,4 +1,6 @@
-##  Hello World!
+# Hello World!
+
+## Explaining 02/main.c
 
 Start with the following code and save as `main.c` using a text editor;
 ```
@@ -20,5 +22,5 @@ $
 Lets go to the next example, and tell more how this works.
 
 
-
-|[TOC](../..README.md) |[01](../01/README.md)|[02](../02/README.md)|[03](src/03/README.md)|[04](src/04/README.md)|[05](src/05/README.md)|[06](src/06/README.md)
+---
+|[TOC](../../README.md) | [Prev](../../README.md) |[Next](../02/README.md)|

@@ -77,4 +77,6 @@ $ make clean
 rm func.o main.o app
 ```
 
+
 ---
+|[TOC](../../README.md) | [Prev](../12/README.md) |[Next](../14/README.md)|

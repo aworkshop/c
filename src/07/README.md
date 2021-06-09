@@ -55,3 +55,7 @@ $
 ```
 
 Here we see it created a file of 100 MB in 5 millisec.
+
+
+---
+|[TOC](../../README.md) | [Prev](../06/README.md) |[Next](../08/README.md)|
