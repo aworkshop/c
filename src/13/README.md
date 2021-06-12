@@ -12,12 +12,24 @@ It checks if there is a `Makefile` present in the current folder. Suppose
 there is *not* one. Then it automatically looks for the `.c` file and builds
 the executable with the same name using the `-o` option.
 
-## make (with Makefile)
+## make (with simple Makefile)
 
 The following automatically loads the `Makefile` or `makefile` and makes it.
 ```
 make
 ```
+The simplest make would be;
+```
+add2: add2.c
+	gcc add2.c -o add2
+```
+
+On the left, before the `:` is a target, the one you want to make, and to 
+the right are its dependencies. If one of these have a newer file-timestamp
+then it executes the script. The script is indented with a `TAB` character.
+
+
+## make 
 
 So what is in that file? In our file it has comment lines and assignments,
 and there are `target: dependencies` followed by zero or more lines starting
@@ -51,6 +63,8 @@ The `make` scans the targets and their dependencies. It is efficient,
 in that it will skip building targets if its dependencies did not change.
 If one file was edited, it will only build the target(s) that depend on it
 directly or indirectly.
+
+It takes the _first_ target when you don't specify one.
 
 You also see that there is a `make clean` target, that removes the target
 executable, and intermediate files.

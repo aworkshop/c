@@ -35,7 +35,8 @@ Check out this repo and follow the manual in order along with the code.
 |[Challenge tools](src/16/README.md) | Tools: ascii, atbash, base64decode, count, patch, phone |
 |[GET example.com/](src/17/README.md) | Your own mini curl |
 |[Threads](src/18/README.md) | Simplest multi thread |
-|[Trashcan](src/19/README.md) | Trashcan|
+|[wordlist example md5](src/18/README.md) | Dockerfile, make, libcrypto, shared docker folder|
+|[Trashcan](src/99/README.md) | Trashcan|
 
 
 ---

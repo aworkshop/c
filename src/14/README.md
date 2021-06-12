@@ -34,6 +34,7 @@ image:
 FROM ubuntu
 
 RUN apt-get update && apt-get install -y \
+  build-essential \
   gcc \
   gdb \
   ltrace \
@@ -85,6 +86,7 @@ real    0m0.647s
 user    0m0.124s
 sys     0m0.058s
 ```
+
 
 
 ---
