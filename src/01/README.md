@@ -1,6 +1,6 @@
 # Hello World!
 
-## Explaining 02/main.c
+## Explaining 01/main.c
 
 Start with the following code and save as `main.c` using a text editor;
 ```

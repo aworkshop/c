@@ -1,4 +1,4 @@
-## Explaining 02/add1.c
+## Explaining 02/add1.c (warnings)
 
 This example is showing a couple of things that need our attention.
 But it will work. This simulates what you might experience while coding.
@@ -30,7 +30,7 @@ You can run it by  `./a.out`.
 You see a prompt, and then type two numbers like  `32 64` separated by a space
 or by a new line. It then responds with the calculated sum  `96`.
 
-When you look into the `add.c` file using a text editor like Atom,
+When you look into the `add1.c` file using a text editor like Atom,
 VSCode, etcetera, you can see the line number before every line.
 And that line number is used to discuss the code.
 
@@ -76,6 +76,7 @@ int main() {
   printf("Enter two numbers: ");
   scanf("%d%d", &a, &b);
   printf("Sum: %d\n", a+b);
+  return 0;
 }
 ```
 

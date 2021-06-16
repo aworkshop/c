@@ -60,7 +60,7 @@ These are in Decimal, Octal, Hexadecimal and Long Decimal format.
 
 ## Character constants
 
-Remember in 01/add.c we used `\n`. This is a character constant for a newline.
+Remember in 02/add2.c we used `\n`. This is a character constant for a newline.
 The `\` backslash is called 'escape character'.
 
 Technically `\n` has different output on Linux and Windows, since they use different

@@ -97,8 +97,9 @@ fill_buffer( buffer, SIZE );
 ```
 
 
+## Advanced
 
-## Pointer mis-use
+### Pointer mis-use
 
 What could happen if you make a mistake?
 Let us look at memory addresses again;
@@ -124,6 +125,13 @@ It is very fast, passing pointers to memory blocks instead of the blocks complet
 And, not all addresses in a computer are memory, some addresses are used for hardware like ports and video.
 
 
+### Program Counter / Instruction Pointer
+
+A CPU register points to the memory address for the next program instruction to execute. 
+When the program is talling a function, it needs to remember where to return to. That address
+is stored in memory (stack). Later when the function is finished, that address is loaded back
+in the program counter, and the program continues.
+
 ### Attack
 
 A call to a function means the system needs to know _where to continue after the call_. So it pushes the program_counter to the stack.
@@ -137,6 +145,8 @@ And then the program can pop the altered program_counter from the stack. And con
 An attacker could try to take advantage of this.
 Input normal data, but hide also compiled code in it.
 Alter the program_counter to point to your compiled code.
+
+https://owasp.org/www-community/attacks/Format_string_attack
 
 ---
 |[TOC](../../README.md) | [Prev](../07/README.md) |[Next](../09/README.md)|
