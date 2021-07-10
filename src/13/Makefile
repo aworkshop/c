@@ -5,7 +5,7 @@ compflags = -g -c -O1 -Wall
 asmflags = --gstabs
 
 # object files specific for this app
-objects = func.o main.o
+objects = func.o main.o 
 
 app: $(objects)
 	gcc -o app $(objects)

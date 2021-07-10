@@ -1,6 +1,10 @@
 #include <stdio.h>
+
+// here are other functions
 #include "func.h"
+// compiler now knows what 'answer' is
 
 int main() {
-  printf("%d.\n", answer() ); // compiler now knows what 'answer' is
+  int a = answer(); 
+  printf("%d.\n", a ); 
 }

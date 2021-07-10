@@ -29,7 +29,7 @@ the right are its dependencies. If one of these have a newer file-timestamp
 then it executes the script. The script is indented with a `TAB` character.
 
 
-## make 
+## 13 / make 
 
 So what is in that file? In our file it has comment lines and assignments,
 and there are `target: dependencies` followed by zero or more lines starting
@@ -61,6 +61,7 @@ clean:
 
 The `make` scans the targets and their dependencies. It is efficient,
 in that it will skip building targets if its dependencies did not change.
+It compares the timestamp of the files for that.
 If one file was edited, it will only build the target(s) that depend on it
 directly or indirectly.
 

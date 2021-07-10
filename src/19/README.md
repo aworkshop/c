@@ -43,4 +43,4 @@ For each of these an md5 is calculated. The output then contains the md5 and wor
 So the file is ~ 31 Mb.
 
 ---
-|[TOC](../../README.md) | [Prev](../18/README.md) |
+|[TOC](../../README.md) | [Prev](../18/README.md) |[Next](../20/README.md)|

@@ -1,5 +1,6 @@
-target: arrays strings memory
-
+target: arrays strings memory hexdump
+hexdump: hexdump.c
+	gcc hexdump.c -o hexdump
 arrays: arrays.c
 	gcc arrays.c -o arrays
 memory: memory.c
@@ -7,4 +8,4 @@ memory: memory.c
 strings: strings.c
 	gcc strings.c -o strings
 clean: 
-	rm -fv arrays strings memory a.out
+	rm -fv arrays strings memory hexdump a.out

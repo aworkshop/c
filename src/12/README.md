@@ -71,9 +71,13 @@ Segmentation fault: 11
 $
 ```
 
-When you get this segmentation fault, then the application is vulnerable.
+When you get this segmentation fault, then the application can be vulnerable.
 
-## Assembly
+Read more on this;
+https://insecure.org/stf/smashstack.html
+
+
+## Advanced / Assembly starter
 Machine code, assembler language (asm), mnemonics.
 Opcode with operands.
 
@@ -110,20 +114,32 @@ _main:
 
 Only a few;
 
+- nop is no-operation (used to fill code)
 - push is pushing to the stack
 - pop is popping from the stack
 - mov is moving from, to
 - add is adding
 - sub is substracting
 - nop is no-operation
-- call is calling
+- call is calling a system method (like printf etc)
 - xor is the xor operation (when both operands are the same it clears it)
 - lea is load effective address
+- jz  is jump when zero (after calculation)
+- jnz is jump when not zero (after calculation and ZF zero flag is cleared)
+- retq is return to address popped from stack
 
 So (%r.. are processor registers);
 - pushq %rbp ; pushes 64 bit base pointer to the stack
 - movq %rsp, %rbp; moves 64 bit stack pointer to the base pointer
 - subq	$16, %rsp; substracting 16 from the stack pointer (stack grows down)
+
+
+### change program flow?
+
+You can change a JNE to JE or JNZ to JZ, so find the byte(s) for that 
+and change.   
+
+
 
 ---
 |[TOC](../../README.md) | [Prev](../11/README.md) |[Next](../13/README.md)|
