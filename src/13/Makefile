@@ -1,8 +1,7 @@
 # Makefile
 
-# Specify the compiler and assembler options.
+# Specify the compiler options.
 compflags = -g -c -O1 -Wall
-asmflags = --gstabs
 
 # object files specific for this app
 objects = func.o main.o 

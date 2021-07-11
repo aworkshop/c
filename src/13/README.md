@@ -38,9 +38,8 @@ with a tab character and linux commands.
 ```
 # Makefile
 
-# Specify the compiler and assembler options.
+# Specify the compiler options.
 compflags = -g -c -O1 -Wall
-asmflags = --gstabs
 
 # object files specific for this app
 objects = func.o main.o
@@ -74,22 +73,26 @@ executable, and intermediate files.
 $ make
 gcc -g -c -O1 -Wall -o func.o func.c
 gcc -g -c -O1 -Wall -o main.o main.c
-gcc -o app func.o main.o
+gcc -o app func.o main.o 
 
-$ ls -l 13*
--rw-r--r--  1 rene  staff   344  5 jun 13:51 Makefile
--rwxr-xr-x  1 rene  staff  8840  5 jun 13:52 app
--rw-r--r--  1 rene  staff    59  5 jun 13:51 func.c
--rw-r--r--  1 rene  staff    87  5 jun 13:50 func.h
--rw-r--r--  1 rene  staff  1852  5 jun 13:52 func.o
--rw-r--r--  1 rene  staff   122  5 jun 13:51 main.c
--rw-r--r--  1 rene  staff  2032  5 jun 13:52 main.o
+$ ls -l 
+-rw-r--r--  1 rene  staff   315 11 jul 14:45 Makefile
+-rw-r--r--  1 rene  staff  2431 11 jul 14:46 README.md
+-rwxr-xr-x  1 rene  staff  8840 11 jul 14:46 app
+-rw-r--r--  1 rene  staff    59  2 jul 20:46 func.c
+-rw-r--r--  1 rene  staff    87  2 jul 20:46 func.h
+-rw-r--r--  1 rene  staff  1852 11 jul 14:46 func.o
+-rw-r--r--  1 rene  staff   166  2 jul 20:47 main.c
+-rw-r--r--  1 rene  staff  2180 11 jul 14:46 main.o
 
 $ ./app
 42.
 
 $ make clean
-rm func.o main.o app
+rm -fv func.o main.o  app
+func.o
+main.o
+app
 ```
 
 
