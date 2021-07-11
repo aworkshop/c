@@ -1,3 +1,5 @@
+# Bits and bytes
+
 ## 06/increment.c
 
 Now it becomes interesting.
@@ -51,7 +53,9 @@ $
 ## 06/bits.c
 
 Unfortunately there is no format string that prints binary output,
-but octal and hexadecimal can show us what the operators do.
+but octal and hexadecimal can show us what the operators do. And
+that is easier to read what happens with the bits than using 
+a decimal number.
 
 ```
 #include <stdio.h>
@@ -71,6 +75,16 @@ int main() {
   printf("The result of ~%02X is %0X.\n", l, ~l);
 
 }
+```
+Remember the hexadecimals? 
+
+My trick when looking at hex `A`, decimal `10`, that the binary is `10 10`.
+
+```
+0  0000    4  0100    8  1000    C  1100
+1  0001    5  0101    9  1001    D  1101
+2  0010    6  0110    A  1010    E  1110
+3  0011    7  0111    B  1011    F  1111
 ```
 
 The output of running this code is (values are hexadecimal);

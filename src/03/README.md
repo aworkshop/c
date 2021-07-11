@@ -1,7 +1,7 @@
 # Theory (part 1)
 
 Inspired by the book 'de programmeertaal C', from ir. L. Ammeraal, Academic Service, 4th edition 1987.
-But is is not a copy.
+But it is not a copy.
 
 ## Contents
 
@@ -186,7 +186,7 @@ int main() {
 ```
 
 In a logical expression in C, 
-* true is `1` and 
+* true is `1` (technically anything other than 0) and 
 * false is `0`.
 
 A bug is to use `=` instead of `==`. 

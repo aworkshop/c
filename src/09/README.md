@@ -1,3 +1,5 @@
+# HexDump 
+
 ## 09/hexdump.c
 
 This example code is showing code with some new topics. Try to optimize it!
@@ -10,16 +12,32 @@ echo "Hello HackDeWereld and HackTheBox."|./a.out
 ```
 
 Using `#define` is useful to define a single place that can be reused
-in the code. These are NOT constants. The pre-compile will replace all
-occurrences in the code with its value. So this has implications. When there
-is a larger expression, and it is used often, consider making a function
-instead. Also when using parameters, expressions can go wrong. Example;
+in the code. These one-liners are NOT constants. 
+
+The pre-compile will replace all occurrences in the code with its value. 
+So this has implications. When there is a larger expression, and it is 
+used often, consider making a function instead. 
+
+Also when using parameters, expressions can go wrong. Example;
 ```
 #define ABS(v) v+1>0?v:-v;
 int i = ABS(-1);
 int j = ABS(a*2+b); // expanded to: a*2+b+1>0?a*2+b:-a*2+b;
-                    //                              ^^^^^^
+                    //                              ^^^^^^ bug here
+int k = -2*ABS(a*2+b); // expanded to: -2*a*2+b+1>0?a*2+b:-a*2+b;
+                    //                 ^^ bug here
 ```
+
+So it is important to have proper `()`; 
+* around each arg
+* around the expression
+
+And think of `#define` behave like a text-replace.
+```
+#define ABS(v) ((v)+1>0?(v):-(v));
+int j = ABS(a*2+b); // expanded to: ((a*2+b)+1>0?(a*2+b):-(a*2+b));
+```
+
 
 The fread() is reading from a FILE, in this case `stdin`. It is reading
 into the `inp` with `LEN` * `sizeof(char)` size. Then `n`
@@ -54,6 +72,14 @@ Look in the code itself.
 
 It shows `malloc()`, `calloc()` and `free()`, when you want to allocate and free memory blocks to store 
 strings, arrays, structures, etcetera.
+
+After a call to `free(memory)`, it can be useful to directly assign `memory=NULL`.
+When you want to debug your code for memory leaks, you can introduce some checks that 
+test for `memory==NULL`. In another situation, when you reuse a variable, for example
+in a loop, to allocate memory again, you can check if the pointer is indeed `NULL`, 
+so that you don't `malloc()` a new block and losing the address of the previous
+allocated memory block; a memory leak.
+
 
 
 ---

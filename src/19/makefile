@@ -6,5 +6,4 @@ image: clean
 	wc -l src/x
 	
 clean:
-	rm src/x
-	rm src/wordlist
+	rm -fv src/x src/wordlist

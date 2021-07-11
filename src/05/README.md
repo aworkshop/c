@@ -7,6 +7,7 @@ This theory section contains:
 - Bitwise Operators
 - Ternary operator
 - Comma operator
+- Casting
 
 Advanced
 - Positive values (bit representation)
@@ -91,6 +92,14 @@ while (scanf("%d", &n), n>0) s+=n;
 The two expressions in  `while() ` are evaluated left to right, so first a number can be entered, then it is tested if it is a positive number, and while it is, it is added to  `s `.
 
 
+## Type casting
+Type casting is to look at a value with a different type.
+```
+int i = 42;
+long l = (long) i; // cast int to long
+//       ^^^^^^ cast
+```
+
 
 # Advanced
 
@@ -109,6 +118,13 @@ Positive  | Int
 ...       | ...
 1111 1110 | 254
 1111 1111 | 255
+
+To specify it use `unsigned`, with `char`, `int`, `short`, and `long`.
+```
+unsigned char u;   //    0...255
+signed   char s;   // -128...127
+```
+
 
 _But how to represent negative values?_
 

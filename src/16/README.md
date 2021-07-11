@@ -1,6 +1,9 @@
+# Tools
+
 ## 16/ascii.c
 
-This just produces an ASCII character table.
+This just produces an ASCII character table. 
+Like the `ascii` on linux, that is missing on OSX.
 
 Output;
 
@@ -47,10 +50,23 @@ This could be tested in code, using `isprint()`.
 
 The most interesting in this code is maybe the format string.
 
+Can you change this code so that;
+* Value 127 is shown as DEL
+* For your terminal the Extended ASCII values for é, euro € etcetera
+
+
 
 ## 16/atbash.c
 
 Custom written tool for solving a challenge. Atbash replaces the Nth char in A-Z with the (27-N) char. So A becomes Z and Z becomes A.
+
+Decoding table:
+```
+ABCDEFGHIJKLM
+ZYXWVUTSRQPON
+```
+
+Example execution:
 ```
 $ echo "This is supersecret information." |./atbash
 Gsrh rh hfkvihvxivg rmulinzgrlm.
@@ -58,7 +74,7 @@ Gsrh rh hfkvihvxivg rmulinzgrlm.
 
 ## 16/base64decode.c
 
-Base64 tools are probably already available on your machine. It can be openssl or base64 or cyberchef, or a replace... I used this to solve a challenge, to be able to tweak the charsets. It uses the characterset for standard base64 _and_ for URL. So `+` and `-` are the same. And `/` and `_` are the same. By doing this, it is customizable for challenges, like ignoring linefeeds.
+Base64 tools are probably already available on your machine. It can be openssl or base64 or cyberchef, or a replace... I used this to solve a challenge, to be able to tweak the charsets. It uses the characterset for standard base64 _and_ for URL. So `+` and `-` are the same. And `/` and `_` are the same. By doing this decoding ourselves, it is customizable for challenges, like multiple base64 strings and ignoring linefeeds.
 
 In the code we need to do some bit shifting.
 
@@ -71,7 +87,8 @@ password
 
 This `count` tool counts the occurence of characters/bytes. It uses standard input. 
 And it suppresses lines that have counts of zero.
-For some challenges this can give ideas to investigate next.
+
+For some challenges this can give ideas to investigate next, on files with strange coded content.
 
 ```
 $ echo -n "hackthebox" | ./count

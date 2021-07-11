@@ -1,3 +1,5 @@
+# Add your input
+
 ## Explaining 02/add1.c (warnings)
 
 This example is showing a couple of things that need our attention.
@@ -105,6 +107,10 @@ Sum: %d
 
 When looking at lines of the executable content, I use a hex-dump. This
 shows the address, the bytes in hexadecimal and its character (when printable).
+
+You notice that it is not only our compiled code. Our compiled code, the 
+object file, is linked to a native library, and made a native executable.
+
 ```
 $ xxd a.out | head
 00000000: cffa edfe 0700 0001 0300 0080 0200 0000  ................
@@ -133,7 +139,7 @@ $ xxd a.out | tail
 $ file a.out
 a.out: Mach-O 64-bit executable x86_64
 ```
-The output depends on the operating system and processor.
+The native output depends on the operating system and processor.
 
 ---
 |[TOC](../../README.md) | [Prev](../01/README.md) |[Next](../03/README.md)|

@@ -1,3 +1,4 @@
+# Create file in docker, and share with host
 
 ## 19/wordlist.c (md5 of all 3 character combinations)
 

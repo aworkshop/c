@@ -1,3 +1,5 @@
+# Fill-up your filesystem
+
 ## 07/createfile.c
 
 This is a first more practical tool. Do you want to create a file with a specific size, like 10 Mb?
@@ -54,7 +56,15 @@ $ ls -l test
 $
 ```
 
-Here we see it created a file of 100 MB in 5 millisec.
+Here we see it created a file of 100 MB in 5 millisec. It is not actually writing all these bytes, it
+just moves the cursor to a new position and then writes a single character.
+
+
+What could be a useful thing to do with this tool?
+* Test how applications behave when there is a full filesystem
+* Might (untested!) overwrite deleted file sectors on disk
+* Testing up/downloads with dummy files with specific size
+* Do you know others?
 
 
 ---
